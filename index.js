@@ -2,12 +2,10 @@ const express = require('express');
 const path = require('path');
 const cors=require('cors');
 const bcrypt=require('bcryptjs');
-// const clientID="1048344310726-tdd7433nulur0gpdd211i6ju559lbecf.apps.googleusercontent.com";
-// const clientSecret="tgpfoP3REfRHu9UKH_K3UX3_"
-// const refreshToken="1//04UREqJnu0-BoCgYIARAAGAQSNwF-L9Ir3OTv8fFeY-B8JknXRoP9jqUlFagS_paxZdynjnFmMwXfT5N6lXdLvn2qt2FXQzFJ0Bs"
+
 var mongodb=require("mongodb");
 var MongoClient=mongodb.MongoClient;
-var url="mongodb+srv://honey:hani@143@cluster0.f15hv.mongodb.net/?retryWrites=true&w=majority";
+var url=process.env.MongoDB_URL;
 var fs=require('fs');
 const app = express();
 const PORT = process.env.PORT || 8080; // Step 1
