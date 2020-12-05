@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const cors=require('cors');
 const bcrypt=require('bcryptjs');
-
 var mongodb=require("mongodb");
 var MongoClient=mongodb.MongoClient;
 var url=process.env.MongoDB_URL;
