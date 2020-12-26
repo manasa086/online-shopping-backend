@@ -2,13 +2,13 @@ const express = require('express');
 const path = require('path');
 const cors=require('cors');
 const bcrypt=require('bcryptjs');
-const clientID="1048344310726-tdd7433nulur0gpdd211i6ju559lbecf.apps.googleusercontent.com";
-const clientSecret="tgpfoP3REfRHu9UKH_K3UX3_"
-const refreshToken="1//04UREqJnu0-BoCgYIARAAGAQSNwF-L9Ir3OTv8fFeY-B8JknXRoP9jqUlFagS_paxZdynjnFmMwXfT5N6lXdLvn2qt2FXQzFJ0Bs"
+const clientID=process.env.clientID;
+const clientSecret=process.env.clientSecret;
+const refreshToken=process.env.refreshToken;
 var mongodb=require("mongodb");
 var MongoClient=mongodb.MongoClient;
 const shortid=require("shortid");
-var url="mongodb+srv://honey:hani@143@cluster0.f15hv.mongodb.net/?retryWrites=true&w=majority";
+var url=process.env.url;
 var fs=require('fs');
 const app = express();
 const Razorpay = require('razorpay')
@@ -17,10 +17,10 @@ var dbname="shoppingcart";
 const nodemailer=require("nodemailer");
 const jwt = require("jsonwebtoken");
 const fileUpload=require('express-fileupload');
-const client_URL="http://localhost:3000/Email/:user";
-const client_URL_seller="http://localhost:3000/Email/:seller";
-const forgot_client_URL="http://localhost:3000/ForgotPassword/:user";
-const forgot_client_URL_seller="http://localhost:3000/ForgotPassword/:seller";
+const client_URL=process.env.client_URL;
+const client_URL_seller=process.env.client_URL_seller;
+const forgot_client_URL=process.forgot_env.client_URL;
+const forgot_client_URL_seller=process.forgot_env.client_URL_seller;
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 require("dotenv").config();
@@ -30,10 +30,8 @@ app.use(cors());
 app.use(fileUpload());
 app.use('/', express.static(path.join(__dirname, '/public')));
 app.get("/", express.static(path.join(__dirname, "./public")));
-const gmail_user="manasa.somisetty06@gmail.com";
-// const clientID=process.env.clientID;
-// const clientSecret=process.env.clientSecret;
-// //const refreshToken=process.env.refreshToken;
+const gmail_user=process.env.gmail_user;
+
 
 const oauth2Client = new OAuth2(
     clientID,
